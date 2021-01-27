@@ -36,7 +36,7 @@ client.on('message', message => {
         if (!args.length) {
             return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
         } else if (args[0].startsWith('newproject'))
-            return message.channel.send(`Haha, you really think ${justin} finished this feature???`);
+            return message.channel.send(`Haha, you really think ${justin} finished this feature?!`);
         };
     }
 );
