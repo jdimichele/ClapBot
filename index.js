@@ -10,6 +10,22 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
+const justin = '<@105691492307234816>'
+
+function getUserFromMention(mention) {
+	if (!mention) return;
+
+	if (mention.startsWith('<@') && mention.endsWith('>')) {
+		mention = mention.slice(2, -1);
+
+		if (mention.startsWith('!')) {
+			mention = mention.slice(1);
+		}
+
+		return client.users.cache.get(mention);
+	}
+}
+
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -19,8 +35,8 @@ client.on('message', message => {
     if (command === 'suggest') {
         if (!args.length) {
             return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
-        } else if (args[0] === 'newproject')
-            return message.channel.send(`Haha, you really think finished this feature???`)
+        } else if (args[0].startsWith('newproject'))
+            return message.channel.send(`Haha, you really think ${justin} finished this feature???`);
         };
     }
 );
